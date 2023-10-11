@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Speed Checker</title>
+</head>
+<body>
+    <p>Speed Checker.</p>
+    <input type="number" id="speed"/><br>
+    <button onclick=s()>Check</button>
+    <br>
+    <h1>your speed shown here</h1>
+    <h2 id="show"></h2>
+    <script>
+    function s()
+    {
+        var speed = document.getElementById("speed").value;
+        
+        
+        if(speed>70){
+            document.getElementById("show").innerHTML= "too fast";
+            window.alert("too fast");
+        }else if(speed<40){
+            document.getElementById("show").innerHTML= "too slow";
+            window.alert("too slow");
+        }else{
+            document.getElementById("show").innerHTML= "good";
+            window.alert("good");
+        }
+    }
+    </script>
+</body>
+</html>
