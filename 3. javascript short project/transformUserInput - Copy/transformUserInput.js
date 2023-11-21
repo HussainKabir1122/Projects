@@ -27,7 +27,19 @@ function main(){
             div.remove();
             div=null;
         }
-        generateToastMSG(`${output.value} copied`);
+        if (isValidHex(output.value)){
+            generateToastMSG(`${output.value} copied`);
+        }else{
+            alert('Invalid Color Code');
+        }
+        
+    });
+
+    output.addEventListener('keyup', function(e){
+        const color = e.target.value;
+        if (color && isValidHex(color)){
+            root.style.backgroundColor = color;
+        }
     });
 }
 
@@ -78,4 +90,18 @@ function generateToastMSG(msg){
     
 
     document.body.appendChild(div);
+}
+
+/**
+ * @param {string} color: ;
+ */
+
+function isValidHex(color){
+
+    if(color.length !== 7) return false;
+    if(color[0] !== '#') return false;
+
+    color = color.substring(1);
+    return /^[0-9A-Fa-f]{6}$/i.test(color);
+
 }
